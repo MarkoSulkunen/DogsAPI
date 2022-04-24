@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Walking the dog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <h2 th:text="'Walking ' + ${dog.name}" style="text-align:center">name</h2>
+    <br />
+        <div id="outer">
+        <div id="inner">
+    <form id="success" method="post" th:action="addHappiness">
+        <input type="hidden" id="dog" name="dogName" th:value="${dog.name}" />
+        <button>Get back from a walk</button>
+    </form>
+        </div>
+        </div>
+    <br>
+    <br>     
+  <div id="outer" style="text-align:center;">
+  <div id="inner">
+      <button onclick="window.location.href='index.html';" class="action_btn">Back</button>
+  </div>
+  </div>
+</body>
+</html>

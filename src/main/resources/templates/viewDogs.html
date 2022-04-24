@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+  <title>DogApi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1 style="font-size:50px;text-align:center;">DogAPI</h1>
+    <div class="buttons" style="text-align:center;">
+    <div class= "action_btn">
+    <div id="outer">
+    <div id="inner">
+      <form id="firstForm" method="get" action="/index">
+        <button class = "Menu action_btn">Home</button>
+        <button form="secondForm" class="Menu2 action_btn">View Hungry Dogs</button>
+      </form>
+<form id="secondForm" method="get" action="/hungry">
+</form>
+    </div>
+    </div>
+    </div>
+    </div>
+  <br>
+  <br>
+  <table border="5px" style="background-color: rgba(100, 100, 100, 0.3);width:50%;text-align:center;margin:auto;">
+    <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Weight</th>
+      <th>Breed</th>
+      <th>Happiness</th>
+      <th>Fullness</th>
+      <th>Status</th>
+    </tr>
+    <tr th:each="dog : ${Dogs}">
+      <td>
+        <h2 th:text="${dog.name}"></h2>
+      </td>
+      <td> <span th:text="${dog.color}"></span><br></td>
+      <td><span th:text="${dog.age}"></span><br></td>
+      <td><span th:text="${dog.gender}"></span><br></td>
+      <td> <span th:text="${dog.weight}"></span><br></td>
+      <td> <span th:text="${dog.breed}"></span><br></td>
+      <td> <span th:text="${dog.happiness}"></span><br></td>
+      <td> <span th:text="${dog.fullness}"></span><br></td>
+      <td> <span th:text="${dog.status}"></span><br></td>
+      <td style='border-left:none;border-right:none;border-bottom:none;border-top:none'>
+        <form method="get" th:action="@{viewDogs/{item}/walk(item=${dog.name})}"
+          th:if="${dog.fullness} > 0">
+          <button>Walk the dog</button>
+        </form>
+      </td>
+      <td style='border-left:none;border-right:none;border-bottom:none;border-top:none'>
+        <form method="post" th:action="delete">
+
+          <input type="hidden" id="dog" name="dogName" th:value="${dog.name}">
+
+          <button>Delete</button>
+
+        </form>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <div id="outer" style="text-align:center;">
+    <div id="inner">
+      <form method="post" action="/viewDogs">
+        <input type="text" name="dogName" placeholder="Name..." required>
+        <input type="text" name="dogColor" placeholder="Color..." required>
+        <input type="text" name="dogAge" placeholder="Age..." required>
+        <input type="text" name="dogGender" placeholder="Gender..." required>
+        <input type="text" name="dogWeight" placeholder="Weight..." required>
+        <input type="text" name="dogBreed" placeholder="Breed..." required>
+        <button>Add New Dog</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <br>
+  </div>
+  </div>
+  <br>
+  <br>
+  <div id="outer"style="text-align:center;">
+    <div id="inner">
+      <button onclick="window.location.href='index.html';" class="action_btn">Back</button>
+    </div>
+  </div>
+</body>
+
+</html>

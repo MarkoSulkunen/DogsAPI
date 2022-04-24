@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <h1 style="font-size:50px;text-align:center;">DogAPI</h1>
+    <div class="buttons" style="text-align:center;">
+    <div class= "action_btn">
+    <div id="outer">
+    <div id="inner">
+      <form id="firstForm" method="get" action="/viewDogs">
+        <button class = "Menu action_btn">View Dogs</button>
+        <button form="secondForm" class="Menu2 action_btn">View Hungry Dogs</button>
+      </form>
+  <form id="secondForm" method="get" action="/hungry">
+  </form>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
