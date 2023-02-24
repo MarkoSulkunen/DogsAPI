@@ -1,7 +1,7 @@
 # DogsAPI
 School project (4/2022)
 
-The Dog API application where the user can add dogs to the table view and feed and walk the dogs over time as the dogs' satisfaction and satiety levels require.
+Dog API application where the user can add dogs to the table view and feed and walk the dogs over time as the dogs' satisfaction and satiety levels require.
 
 ![image](https://user-images.githubusercontent.com/112402293/220416967-93f2aae5-9df7-4996-8a94-cf5ab373dc37.png)
 
